@@ -121,9 +121,18 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+#portfolio button{
+justify-content: center;
+}
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
+}
+.bouton {
+	padding-left: 200px;
+}
+.btn-all, .btn-cat1, .btn-cat2, .btn-cat3{
+margin-right: 10px;
 }
 .gallery {
 	width: 100%;
@@ -137,31 +146,31 @@ li:hover {
 	width: 100%;
 
 }
-#contact {
+#contact, #login {
 	width: 50%;
 margin: auto;
 }
-#contact > * {
+#contact, #login > * {
 	text-align: center;
 
 }
-#contact h2{
+#contact h2, #login h2{
 	margin-bottom: 20px;
 }
-#contact form {
+#contact form,  #login form {
 	text-align: left;
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact input {
+#contact input,  #login input{
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
+#contact label,  #login label {
 	margin: 2em 0 1em 0;
 }
 #contact textarea {
@@ -169,7 +178,7 @@ margin: auto;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"]{
+input[type="submit"], .btn-all {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
@@ -178,8 +187,24 @@ input[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+	height: 50px;
+	border: none;
 }
-
+.btn-cat1, .btn-cat2, .btn-cat3 {
+	font-family: 'Syne';
+	font-weight: 700;
+	color: #1D6154;
+	border-color: #1D6154;
+	background-color: white;
+	margin : 2em auto ;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+	height: 50px;
+}
+#login p {
+	margin: auto;
+}
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
