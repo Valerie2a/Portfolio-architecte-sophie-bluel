@@ -57,9 +57,6 @@ function ajouterFiltres (works) {
 // Récupère les travaux via l'API 
     fetch("http://localhost:5678/api/works")
 .then((response) => response.json())
-    /*if (!response.ok) {
-        throw new Error("Erreur lors de la récupération des travaux.");
-      }*/
 .then ((works)=> {
     genererWorks(works);// Génère tous les travaux au chargement initial
     ajouterFiltres(works);// Ajoute les filtres aux boutons
