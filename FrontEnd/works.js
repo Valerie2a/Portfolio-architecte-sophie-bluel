@@ -1,8 +1,19 @@
-function genererWorks(works) {
-// Sélectionne la zone où les travaux doivent être affichés
-    const galleryElement=document.querySelector(".gallery");
+function genererWorks(works, galleryElement, modalWrapperElement= null) {
+    
 // Réinitialise le contenu avant de générer les travaux
     galleryElement.innerHTML = "";
+    if (modalWrapperElement) {
+        let thumbnailsContainer = modalWrapperElement.querySelector(".thumbnails-container");
+        
+        if (!thumbnailsContainer) {
+            thumbnailsContainer = document.createElement("div");
+            thumbnailsContainer.classList.add("thumbnails-container");
+            modalWrapperElement.appendChild(thumbnailsContainer);
+        } else {
+            thumbnailsContainer.innerHTML = ""; // vide le contenu du contenair des vignettes, conserve les autres elements
+        }
+    }
+
 // Parcourt la liste des travaux et génère le HTML pour chaque travail
     for (let i = 0; i < works.length; i++) {
     const work = works[i];
@@ -19,41 +30,22 @@ function genererWorks(works) {
     figureElement.appendChild(figcaptionElement);
 // Ajout des enfants element figure à l'element gallery
     galleryElement.appendChild(figureElement);
+// Ajout des elements de la modale 
+if (modalWrapperElement) {
+    const modalFigure = document.createElement("figure");
+    const modalImg = document.createElement("img");
+
+    modalImg.src = work.imageUrl;
+    modalImg.alt = work.title;
+    modalImg.classList.add("thumbnail"); // Ajout de la class vignette
+
+    modalFigure.appendChild(modalImg);
+    // Ajout dans le conteneur des vignettes
+    modalWrapperElement.querySelector(".thumbnails-container").appendChild(modalFigure);
     }
-}
-// Fonction pour filtrer les travaux
-/*function ajouterFiltres (works) {
-    const boutonTous=document.querySelector(".btn-all");
-    const boutonCategorie1=document.querySelector(".btn-cat1");
-    const boutonCategorie2=document.querySelector(".btn-cat2");
-    const boutonCategorie3=document.querySelector(".btn-cat3");
- // Ajoute un événement pour afficher tous les travaux
-    boutonTous.addEventListener("click",function () {
-        genererWorks(works);
-    });  
-// Ajoute un événement pour afficher les travaux de catégorie 1
-    boutonCategorie1.addEventListener("click",function () {
-        const filteredWorks = works.filter(function (work) {
-            return work.categoryId===1;
-        });  
-        genererWorks (filteredWorks);
-    });  
-// Ajoute un événement pour afficher les travaux de catégorie 2     
-    boutonCategorie2.addEventListener("click",function () {
-        const filteredWorks = works.filter(function (work) {
-            return work.categoryId===2;
-        });  
-        genererWorks (filteredWorks);
-    });  
-// Ajoute un événement pour afficher les travaux de catégorie 3  
-    boutonCategorie3.addEventListener("click",function () {
-        const filteredWorks = works.filter(function (work) {
-            return work.categoryId===3;
-        });  
-        genererWorks (filteredWorks);
-    });    
-}*/
-function ajouterFiltres(works) {
+    }
+} 
+function ajouterFiltres(works, galleryElement) {
     const buttons = document.querySelectorAll(".bouton button");
 
     buttons.forEach(button => {
@@ -70,7 +62,7 @@ function ajouterFiltres(works) {
                     return work.categoryId == categoryNumber;
                 });
             }
-            genererWorks(filteredWorks);
+            genererWorks(filteredWorks, galleryElement);
         });
     });
 }
@@ -79,8 +71,11 @@ function ajouterFiltres(works) {
     fetch("http://localhost:5678/api/works")
 .then((response) => response.json())
 .then ((works)=> {
-    genererWorks(works);// Génère tous les travaux au chargement initial
-    ajouterFiltres(works);// Ajoute les filtres aux boutons
+    const galleryElement = document.querySelector(".gallery");
+    const modalWrapperElement = document.querySelector(".modal-wrapper");
+
+    genererWorks(works, galleryElement, modalWrapperElement);// Génère tous les travaux au chargement initial
+    ajouterFiltres(works, galleryElement);// Ajoute les filtres aux boutons
 })  
 .catch((error) => {
     console.error("Erreur : ", error);

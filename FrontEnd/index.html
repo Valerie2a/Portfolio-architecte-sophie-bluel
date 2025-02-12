@@ -13,15 +13,19 @@
 	<link rel="stylesheet" href="./assets/style.css">
 	<script type="module" src="works.js"></script>
 	<script type="module" src="app.js"></script>
+	<script type="module" src="login.js"></script>
 </head>
 <body>
+	<div class="edition">
+		<p><i class="fa-regular fa-pen-to-square"></i>Mode édition</p>
+	</div>	
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<li>login</li>
+			<li class="varLogin"><a href="login.html">login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -40,16 +44,17 @@
 	</section>
 	<section id="portfolio">
 		<h2>Mes Projets <a href="#modal1" class="js-modal"><i class="fa-regular fa-pen-to-square"></i>modifier</a></h2>
-		<aside id="modal1" class="modal" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="titlemodal1" style="display:none;">
+		<aside id="modal1" class="modal" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="titlemodal1">
 			<div class="modal-wrapper"> 
 				<span class="js-modal-close"><i class="fa-solid fa-xmark"></i></span>
 				<h1 id="titlemodal1">Galerie photo</h1>
+				<div class="thumbnails-container"></div>
 				<div class="modal-footer">
 				<button type="button" class="js-modal2">Ajouter une photo</button>
 				</div>
 			</div>			
 		</aside>
-		<aside id="modal2" class="modal" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="titlemodal2" style="display:none;">
+		<aside id="modal2" class="modal" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="titlemodal2">
 			<div class="modal-wrapper2"> 
 				<span class="js-modal-close"><i class="fa-solid fa-xmark"></i></span>
 				<span class="return"><i class="fa-solid fa-arrow-left return"></i></span>
@@ -60,8 +65,7 @@
 						type="file"
 						id="fileElem"
 						multiple
-						accept="image/*"
-						style="display:none" />
+						accept="image/*"/>
 					<button id="fileSelect" type="button">+ Ajouter photo</button>
 					<p>jpg, png: 4mo max</p>
 				</div>
@@ -71,7 +75,7 @@
 				<label for="name">Catégorie</label>
 				<input type="text" name="name" id="name">
 				</div>
-				<div class="modal-footer">
+				<div class="modal-footer2">
 				<button id="photo" type="button">Valider</button>
 				</div>
 			</div>			
@@ -80,50 +84,6 @@
 		<button class="btn-all">Tous</button> <button class="btn-cat1">Objets</button> <button class="btn-cat2">Appartements</button> <button class="btn-cat3">Hotels & restaurants</button>
 		</div>
 		<div class="gallery">
-			<!--<figure>
-				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
-				<figcaption>Abajour Tahina</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
-				<figcaption>Appartement Paris V</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
-				<figcaption>Restaurant Sushisen - Londres</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
-				<figcaption>Villa “La Balisiere” - Port Louis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
-				<figcaption>Structures Thermopolis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
-				<figcaption>Appartement Paris X</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
-				<figcaption>Pavillon “Le coteau” - Cassis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba">
-				<figcaption>Villa Ferneze - Isola d’Elba</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
-				<figcaption>Appartement Paris XVIII</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris">
-				<figcaption>Bar “Lullaby” - Paris</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
-				<figcaption>Hotel First Arte - New Delhi</figcaption>
-			</figure>-->
 		</div>
 	</section>
 	<section id="contact">

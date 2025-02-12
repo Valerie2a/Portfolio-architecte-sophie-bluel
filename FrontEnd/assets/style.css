@@ -61,7 +61,20 @@ header {
 section {
 	margin: 50px 0
 }
-
+.edition {
+	width: 100%;
+	padding: 20px;
+	background-color: black;
+	font-family:'Work Sans' ;
+	color: white;
+	font-size: 12px;
+	box-sizing: border-box;
+	text-align: center;
+	display: none;
+  }
+.edition_selected {
+	display: block;
+}
 h1{
 	display: flex;
 	flex-direction: column;
@@ -139,7 +152,7 @@ justify-content: center;
 	left:0;
 	width:100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.8);	
+	background: rgba(0, 0, 0, 0.8);
 }
 .modal-wrapper{
 	display: flex;
@@ -147,14 +160,31 @@ justify-content: center;
 	align-items: center;
 	justify-content:space-between;
 	overflow-y: auto; 
-	width: 700px;
-	height: 600px;
+	margin: auto;
+	width: 600px;
+	height: 700px;
 	max-height: 90vh;
 	border-radius: 10px;
 	/*max-width: calc(100vw - 20px);
 	max-height: calc(100vh - 20px);*/
 	padding: 20px;
 	background-color: white;
+}
+.thumbnails-container {
+    display: flex;
+    flex-wrap: wrap;
+	justify-content: flex-start;
+    gap: 7px; /* Espacement entre les vignettes */
+    width: 100%;
+	margin-top: 20px;
+	margin-left: 70px;
+}
+/* Miniatures */
+.thumbnail {
+    width: 85px; 
+    height: 100px;
+    object-fit: cover;
+    margin: 5px;
 }
 .modal-wrapper2{
 	display: flex;
@@ -163,16 +193,15 @@ justify-content: center;
 	justify-content:space-between;
 	overflow-y: auto; 
 	background-color: white;
-	width: 700px;
-	height: 700px;
+	width: 600px;
+	height: 500px;
 	max-height: 90vh;
 	margin: auto;
 	border-radius: 10px;
 	padding: 20px;
-    /*max-width: calc(100vw - 20px);
-    max-height: calc(100vh - 20px);*/
+  
 }
-.modal-wrapper2 {
+.modal-wrapper2, .modal-wrapper {
     scrollbar-width: none; /* Pour Firefox */
     -ms-overflow-style: none; /* Pour Internet Explorer et Edge */
 }
@@ -180,7 +209,12 @@ justify-content: center;
 .modal-wrapper2::-webkit-scrollbar {
     display: none; /* Pour Chrome, Safari et Opera */
 }
-
+#modal1, #modal2 {
+    display: none; /* Par défaut, les modales sont cachées */
+}
+.modal-active {
+    display: block !important; /* La classe affichera la modale */
+}
 .upload{
 	display: flex;
 	flex-direction: column;
@@ -193,7 +227,7 @@ justify-content: center;
 	align-items: center;
 	justify-content: center;
 	position: absolute;
-	right: 270px;
+	right: 310px;
 	width: 40px;
 	height: 30px;
 	top: 3%;
@@ -205,18 +239,24 @@ justify-content: center;
 	align-items: center;
 	justify-content: center;
 	position: absolute;
-	left: 140px;
+	left: 160px;
 	width: 40px;
 	height: 30px;
 	top: 3%;
 	font-size: 20px;
 	color: #353535;
 }
-  .modal-footer { /*trait fin modal*/
+.modal-footer { /*trait fin modal*/
     border-top: 1px solid #ccc; 
-    width: 500px; 
-    margin: 20px auto 0 auto; 
-    padding-top: 10px; 
+    width: 600px; 
+    margin-top: auto;
+    text-align: center; 
+}
+.modal-footer2 { /*trait fin modal*/
+    border-top: 1px solid #ccc; 
+    width: 600px; 
+	padding-top: 10px;
+    margin-top: auto;
     text-align: center; 
 }
 #portfolio a {
@@ -237,6 +277,10 @@ justify-content: center;
     font-size: 1.0rem; 
     color: black; 
     text-decoration: none; 
+	display: none;
+}
+.js-modal_selected {
+	display: block;
 }
 .bouton {
 	padding-left: 200px;
@@ -278,7 +322,7 @@ margin: auto;
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
-	margin: 1em 0 1em 0;
+	margin: 0.1em 0 0.1em 0;
 }
 #contact input,  #login input, #modal2 input{
 	height: 50px;
@@ -288,9 +332,14 @@ margin: auto;
 }
 #modal2 input{
 	width:500px;
+	height: 40px;
+	margin-bottom: 0;
 }
-#contact label,  #login label, #modal2 label {
+#contact label,  #login label {
 	margin: 2em 0 1em 0;
+}
+#modal2 label{
+	margin: 1em 0 1em 0;
 }
 #contact textarea {
 	border: none;
@@ -341,7 +390,6 @@ input[type="submit"], .btn-all, .js-modal2 {
 	font-weight: 700;
 	color: white;
 	background-color: grey;
-	margin : 2em auto ;
 	width: 250px;
 	text-align: center;
 	border-radius: 60px ;
@@ -356,7 +404,7 @@ justify-content:center;
 padding-top: 15px;
 margin-top: 20px;
 background-color: rgb(223, 236, 245);
-height: 180px;
+height: 150px;
 width: 500px;
 border-radius: 5px;
 gap:10px;
@@ -369,6 +417,9 @@ gap:10px;
 .photo p{
 	font-size: 10px;
 	margin-bottom: 10px;
+}
+.photo input{
+	display: none;
 }
 #login p {
 	margin: auto;
