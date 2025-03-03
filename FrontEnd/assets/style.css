@@ -3,87 +3,19 @@
    License: none (public domain)
 */
 
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -92,36 +24,23 @@ video {
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
   display: block;
 }
 body {
   line-height: 1;
 }
-ol,
-ul {
+ol,ul {
   list-style: none;
 }
-blockquote,
-q {
+blockquote, q {
   quotes: none;
 }
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
 }
 table {
   border-collapse: collapse;
@@ -131,7 +50,7 @@ table {
 body {
   max-width: 1140px;
   margin: auto;
-  font-family: "Work Sans";
+  font-family: 'Work Sans';
   font-size: 14px;
 }
 header {
@@ -146,10 +65,11 @@ section {
   text-decoration: none;
 }
 .edition {
+  /*bannière mode edition apparait une fois le log in effectué*/
   width: 100%;
   padding: 20px;
   background-color: black;
-  font-family: "Work Sans";
+  font-family: 'Work Sans';
   color: white;
   font-size: 12px;
   box-sizing: border-box;
@@ -168,25 +88,24 @@ section {
 h1 {
   display: flex;
   flex-direction: column;
-  font-family: "Syne";
+  font-family: 'Syne';
   font-size: 22px;
   font-weight: 800;
   color: #b1663c;
 }
-
 h1 > span {
-  font-family: "Work Sans";
+  font-family: 'Work Sans';
   font-size: 10px;
   letter-spacing: 0.1em;
 }
 #titlemodal1,
 #titlemodal2 {
-  font-family: "Work Sans";
+  font-family: 'Work Sans';
   font-size: 28px;
   color: black;
 }
 h2 {
-  font-family: "Syne";
+  font-family: 'Syne';
   font-weight: 700;
   font-size: 30px;
   color: #1d6154;
@@ -216,7 +135,6 @@ li:hover {
   margin: auto;
   width: 80%;
 }
-
 #introduction article {
   flex: 1;
 }
@@ -253,8 +171,6 @@ li:hover {
   height: 700px;
   max-height: 90vh;
   border-radius: 10px;
-  /*max-width: calc(100vw - 20px);
-	max-height: calc(100vh - 20px);*/
   padding: 20px;
   background-color: white;
 }
@@ -262,7 +178,7 @@ li:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 7px; /* Espacement entre les vignettes */
+  gap: 7px; 
   width: 100%;
   margin-top: 20px;
   margin-left: 70px;
@@ -276,24 +192,22 @@ li:hover {
 }
 .trash-icon {
   position: absolute;
-  top: 10px; /* Ajuste la position verticale */
-  right: 10px; /* Ajuste la position horizontale */
+  top: 10px;
+  right: 10px;
   background-color: black;
   color: white;
   cursor: pointer;
-  font-size: 12px; /* Augmente un peu la taille de l'icône */
-  padding: 3px 4px 4px 4px; /* Agrandit le rectangle autour de l'icône */
-  border-radius: 4px; /* Arrondit légèrement les coins */
-  display: flex; /* Centre l'icône à l'intérieur */
+  font-size: 12px;
+  padding: 3px 4px 4px 4px;
+  border-radius: 4px;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .thumbnails-container figure {
   position: relative;
   display: inline-block; /* Pour éviter que l'icône se place en dessous */
 }
-
 .modal-wrapper2 {
   display: flex;
   flex-direction: column;
@@ -331,39 +245,37 @@ li:hover {
   justify-content: space-between;
   overflow: auto;
 }
-.js-modal-close {
+.js-modal-close {/*croix fermeture*/
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  right: 310px;
+  right: 650px;
   width: 40px;
   height: 30px;
-  top: 3%;
+  top: 2%;
   font-size: 20px;
   color: #353535;
 }
-.return {
+.return {/*flèche retour modale2*/
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  left: 160px;
+  left: 320px;
   width: 40px;
   height: 30px;
-  top: 3%;
+  top: 2%;
   font-size: 20px;
   color: #353535;
 }
-.modal-footer {
-  /*trait fin modal*/
+.modal-footer {/*trait fin modal*/
   border-top: 1px solid #ccc;
   width: 600px;
   margin-top: auto;
   text-align: center;
 }
-.modal-footer2 {
-  /*trait fin modal*/
+.modal-footer2 {/*trait fin modal*/
   border-top: 1px solid #ccc;
   width: 600px;
   padding-top: 10px;
@@ -381,7 +293,7 @@ li:hover {
   align-items: center;
   position: relative;
 }
-.js-modal {
+.js-modal {/*bouton modifier modale1*/
   padding-top: 20px;
   right: 0;
   margin-left: 10px;
@@ -393,7 +305,7 @@ li:hover {
 .js-modal_selected {
   display: block;
 }
-.bouton {
+.bouton {/*zone bouton filtres (hotels, divers...)*/
   padding-left: 200px;
 }
 .btn-all,
@@ -433,7 +345,7 @@ li:hover {
   display: flex;
   flex-direction: column;
 }
-.categorie {
+.categorie {/*zone libellés titre et catégorie modale 2*/
   text-align: left;
   margin-top: 30px;
   display: flex;
@@ -465,10 +377,10 @@ li:hover {
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"],
+input[type='submit'],
 .btn-all,
 .js-modal2 {
-  font-family: "Syne";
+  font-family: 'Syne';
   font-weight: 700;
   color: white;
   background-color: #1d6154;
@@ -484,7 +396,7 @@ input[type="submit"],
 .btn-cat2,
 .btn-cat3,
 #fileSelect {
-  font-family: "Syne";
+  font-family: 'Syne';
   font-weight: 700;
   color: #1d6154;
   border-color: #1d6154;
@@ -495,8 +407,8 @@ input[type="submit"],
   border-radius: 60px;
   height: 50px;
 }
-#fileSelect {
-  font-family: "Work Sans";
+#fileSelect {/*bouton +ajouter photo modale2*/
+  font-family: 'Work Sans';
   font-weight: 700;
   font-size: 16px;
   color: rgb(9, 122, 175);
@@ -508,8 +420,8 @@ input[type="submit"],
   border-radius: 60px;
   height: 40px;
 }
-#photo {
-  font-family: "Syne";
+#photo {/*bouton valider modale2*/
+  font-family: 'Syne';
   font-size: 16px;
   font-weight: 700;
   color: white;
@@ -520,15 +432,21 @@ input[type="submit"],
   height: 50px;
   border: none;
 }
-.photo {
+.photo img {/*vignette apparaissant dans la modale2 après le telechargement du fichier*/
+  width: 23%;
+  height: auto;
+  height: 150px;
+  object-fit: cover;
+}
+
+.photo {/*lien d'insertion vignette modale 2*/
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 15px;
   margin-top: 20px;
   background-color: rgb(223, 236, 245);
-  height: 150px;
+  height: 155px;
   width: 500px;
   border-radius: 5px;
   gap: 10px;

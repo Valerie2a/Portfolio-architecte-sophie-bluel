@@ -1,13 +1,13 @@
 let modal = null;
 // Selection du mode edition et ajout d'un add listener
-const modeEdition = document.querySelector(".mode");
+const modeEdition = document.querySelector('.mode');
 
 if (modeEdition) {
-  modeEdition.addEventListener("click", function (e) {
+  modeEdition.addEventListener('click', function (e) {
     e.preventDefault();
     openModal1({
       preventDefault: () => {},
-      target: document.querySelector(".js-modal"),
+      target: document.querySelector('.mode'),
     });
   });
 }
@@ -16,15 +16,15 @@ if (modeEdition) {
 const openModal1 = function (e) {
   e.preventDefault(); // Empêche le comportement par défaut du lien
 
-  const target = document.querySelector(e.target.getAttribute("href"));
+  const target = document.querySelector(e.target.getAttribute('href'));
   if (!target) return;
 
   // Cache toute modale précédente avant d'afficher la nouvelle
   closeModal();
 
-  target.classList.add("modal-active");
-  target.removeAttribute("aria-hidden");
-  target.setAttribute("aria-modal", "true");
+  target.classList.add('modal-active');
+  target.removeAttribute('aria-hidden');
+  target.setAttribute('aria-modal', 'true');
   modal = target;
 
   // Ajouter les écouteurs d'événements pour la fermeture de la modale
@@ -43,9 +43,9 @@ const closeModal1 = function (e) {
 const closeModal = function () {
   if (!modal) return;
 
-  modal.classList.remove("modal-active");
-  modal.setAttribute("aria-hidden", "true");
-  modal.removeAttribute("aria-modal");
+  modal.classList.remove('modal-active');
+  modal.setAttribute('aria-hidden', 'true');
+  modal.removeAttribute('aria-modal');
 
   // Supprimer les écouteurs d'événements
   removeModalCloseListeners(modal);
@@ -54,44 +54,44 @@ const closeModal = function () {
 
 // Ajout des écouteurs d'événements pour la fermeture de la modale
 const addModalCloseListeners = function (modal, closeCallback) {
-  modal.addEventListener("click", function (e) {
+  modal.addEventListener('click', function (e) {
     if (e.target === modal) {
       closeCallback(e);
     }
   });
 
   modal
-    .querySelector(".js-modal-close")
-    .addEventListener("click", closeCallback);
+    .querySelector('.js-modal-close')
+    .addEventListener('click', closeCallback);
 };
 
 // Suppression des écouteurs d'événements
 const removeModalCloseListeners = function (modal) {
-  modal.removeEventListener("click", closeModal1);
+  modal.removeEventListener('click', closeModal1);
   modal
-    .querySelector(".js-modal-close")
-    .removeEventListener("click", closeModal1);
+    .querySelector('.js-modal-close')
+    .removeEventListener('click', closeModal1);
 };
 
 // Fonction pour ouvrir la deuxième modale
 const openModal2 = function (e) {
   e.preventDefault();
 
-  const target = document.querySelector("#modal2");
+  const target = document.querySelector('#modal2');
   if (!target) return;
 
   closeModal(); // Ferme la première modale
 
-  target.classList.add("modal-active");
-  target.removeAttribute("aria-hidden");
-  target.setAttribute("aria-modal", "true");
+  target.classList.add('modal-active');
+  target.removeAttribute('aria-hidden');
+  target.setAttribute('aria-modal', 'true');
   modal = target;
 
   // Ajouter les écouteurs pour la fermeture de la deuxième modale
   addModalCloseListeners(modal, closeModal2);
 
   // Ajouter l'écouteur pour revenir à la première modale
-  modal.querySelector(".return").addEventListener("click", returnToModal1);
+  modal.querySelector('.return').addEventListener('click', returnToModal1);
 };
 
 // Fonction pour fermer la deuxième modale
@@ -104,7 +104,7 @@ const closeModal2 = function (e) {
   // Une fois la modale fermée, revenir à la première modale
   openModal1({
     preventDefault: () => {},
-    target: document.querySelector(".js-modal"),
+    target: document.querySelector('.js-modal'),
   });
 };
 
@@ -118,16 +118,16 @@ const returnToModal1 = function (e) {
   // Rouvre la première modale
   openModal1({
     preventDefault: () => {},
-    target: document.querySelector(".js-modal"),
+    target: document.querySelector('.js-modal'),
   });
 };
 
 // Ajout des écouteurs d'événements pour les boutons qui ouvrent la modale 1
-document.querySelectorAll(".js-modal").forEach((a) => {
-  a.addEventListener("click", openModal1);
+document.querySelectorAll('.js-modal').forEach((a) => {
+  a.addEventListener('click', openModal1);
 });
 
 // Ajout des écouteurs d'événements pour les boutons qui ouvrent la modale 2
-document.querySelectorAll(".js-modal2").forEach((button) => {
-  button.addEventListener("click", openModal2);
+document.querySelectorAll('.js-modal2').forEach((button) => {
+  button.addEventListener('click', openModal2);
 });
