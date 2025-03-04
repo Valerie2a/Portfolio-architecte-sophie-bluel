@@ -4,6 +4,7 @@
   "main": "works.js",
   "scripts": {
     "start": "live-server ./",
+    "build": "echo 'No build step required' ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
