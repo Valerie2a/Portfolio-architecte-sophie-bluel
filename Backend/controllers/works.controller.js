@@ -2,8 +2,9 @@ const db = require('./../models');
 const Works = db.works;
 
 // Détecte si on est en local ou en production
-const baseUrl =
-  process.env.BASE_URL || `http://localhost:${process.env.PORT || 5678}`;
+const baseUrl = process.env.BASE_URL
+  ? process.env.BASE_URL
+  : `http://localhost:${process.env.PORT || 5678}`;
 
 exports.findAll = async (req, res) => {
   const works = await Works.findAll({include: 'category'});
@@ -36,6 +37,7 @@ exports.create = async (req, res) => {
     return res.status(500).json({error: err.message || 'Something went wrong'});
   }
 };
+
 exports.delete = async (req, res) => {
   try {
     await Works.destroy({where: {id: req.params.id}});
