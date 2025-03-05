@@ -1,4 +1,4 @@
-![Aperçu du projet](assets/images/screenshot.png)
+![Aperçu du projet](FrontEnd/assets/images/screenshot.png)
 
 
 Présentation du projet 6 Créez une page web dynamique avec JavaScript:
