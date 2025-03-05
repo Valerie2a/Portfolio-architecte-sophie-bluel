@@ -1,3 +1,6 @@
+![Aperçu du projet](assets/images/screenshot.png)
+
+
 Présentation du projet 6 Créez une page web dynamique avec JavaScript:
 
 Ce projet fait partie du parcours Développeur Web sur OpenClassrooms. L'objectif est de dynamiser une page web statique en intégrant du JavaScript pour interagir avec une API, gérer l'affichage dynamique des données et permettre des actions utilisateur comme l'ajout ou la suppression d'éléments.
